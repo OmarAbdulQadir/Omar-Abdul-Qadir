@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omar Abdul Qadir — Embedded Software Engineer</title>
+<meta name="description" content="Portfolio of Omar Abdul Qadir, Embedded Software Engineer specializing in RTOS, Embedded Linux, and low-level driver development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <span class="chip-mark">OAQ<span class="chip-mark-rev">·EMBEDDED</span></span>
+    <nav class="pinnav" aria-label="Section navigation">
+      <a href="#summary">Summary</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO / SIGNATURE ELEMENT -->
+  <section class="hero wrap" id="top">
+    <div class="hero-text">
+      <p class="eyebrow">// embedded software engineer — cairo, egypt</p>
+      <h1>Omar Abdul Qadir</h1>
+      <p class="hero-lede">I build the firmware layer between silicon and the systems that depend on it — communication stacks, RTOS ports, and Embedded Linux images that run reliably in the field, not just on the bench.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">View projects</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+      <p class="hero-meta">Currently: Embedded Software Engineer @ Pylon · Smart-grid comms, RTOS, Embedded Linux</p>
+    </div>
+
+    <div class="hero-chip" aria-hidden="false">
+      <svg viewBox="0 0 420 420" class="chip-svg" role="img" aria-label="Interactive microcontroller diagram linking to page sections">
+        <!-- traces drawn first so pads sit on top -->
+        <g class="traces" stroke-linecap="square">
+          <path class="trace" data-target="#summary"    d="M60,120 H20"/>
+          <path class="trace" data-target="#experience"  d="M60,180 H20"/>
+          <path class="trace" data-target="#projects"    d="M60,240 H20"/>
+          <path class="trace" data-target="#skills"      d="M60,300 H20"/>
+          <path class="trace" data-target="#contact"     d="M360,180 H400"/>
+          <path class="trace" data-target="#contact"     d="M360,240 H400"/>
+          <path class="trace" data-target="#experience"  d="M150,60 V20"/>
+          <path class="trace" data-target="#projects"    d="M210,60 V20"/>
+          <path class="trace" data-target="#skills"      d="M270,60 V20"/>
+          <path class="trace" data-target="#summary"     d="M150,360 V400"/>
+          <path class="trace" data-target="#contact"     d="M270,360 V400"/>
+        </g>
+
+        <rect x="60" y="60" width="300" height="300" rx="6" class="die"/>
+        <rect x="82" y="82" width="256" height="256" rx="2" class="die-inner"/>
+        <text x="210" y="196" text-anchor="middle" class="die-label">OAQ‑1</text>
+        <text x="210" y="216" text-anchor="middle" class="die-label die-label-sub">EMBEDDED · REV A</text>
+        <circle cx="96" cy="96" r="4" class="pin1-dot"/>
+
+        <!-- Left pads -->
+        <g class="pad-group" data-href="#summary">
+          <rect x="20" y="112" width="40" height="16" class="pad"/>
+          <text x="14" y="124" text-anchor="end" class="pad-label">SUM</text>
+        </g>
+        <g class="pad-group" data-href="#experience">
+          <rect x="20" y="172" width="40" height="16" class="pad"/>
+          <text x="14" y="184" text-anchor="end" class="pad-label">EXP</text>
+        </g>
+        <g class="pad-group" data-href="#projects">
+          <rect x="20" y="232" width="40" height="16" class="pad"/>
+          <text x="14" y="244" text-anchor="end" class="pad-label">PRJ</text>
+        </g>
+        <g class="pad-group" data-href="#skills">
+          <rect x="20" y="292" width="40" height="16" class="pad"/>
+          <text x="14" y="304" text-anchor="end" class="pad-label">SKL</text>
+        </g>
+
+        <!-- Right pads -->
+        <g class="pad-group" data-href="#contact">
+          <rect x="360" y="172" width="40" height="16" class="pad"/>
+          <text x="406" y="184" text-anchor="start" class="pad-label">GIT</text>
+        </g>
+        <g class="pad-group" data-href="#contact">
+          <rect x="360" y="232" width="40" height="16" class="pad"/>
+          <text x="406" y="244" text-anchor="start" class="pad-label">CTC</text>
+        </g>
+
+        <!-- Top pads -->
+        <g class="pad-group" data-href="#experience">
+          <rect x="142" y="20" width="16" height="40" class="pad"/>
+        </g>
+        <g class="pad-group" data-href="#projects">
+          <rect x="202" y="20" width="16" height="40" class="pad"/>
+        </g>
+        <g class="pad-group" data-href="#skills">
+          <rect x="262" y="20" width="16" height="40" class="pad"/>
+        </g>
+
+        <!-- Bottom pads -->
+        <g class="pad-group" data-href="#summary">
+          <rect x="142" y="360" width="16" height="40" class="pad"/>
+        </g>
+        <g class="pad-group" data-href="#contact">
+          <rect x="262" y="360" width="16" height="40" class="pad"/>
+        </g>
+      </svg>
+      <p class="chip-caption">click a pin — it routes to a section</p>
+    </div>
+  </section>
+
+  <!-- SUMMARY -->
+  <section class="section" id="summary">
+    <div class="wrap section-inner">
+      <p class="eyebrow">summary.txt</p>
+      <p class="summary-text">Determined embedded software engineer with a strong focus on research, problem-solving, and system optimization. I care about the parts of firmware that don't show up in a demo: boot time, memory integrity under load, and driver behavior at the edges of the datasheet. Currently seeking to keep applying that toward reliable, high-quality embedded and Linux systems.</p>
+      <dl class="fact-row">
+        <div><dt>Location</dt><dd>Cairo, Egypt</dd></div>
+        <div><dt>Focus</dt><dd>RTOS · Embedded Linux · Comms stacks</dd></div>
+        <div><dt>Languages</dt><dd>Arabic (native) · English (advanced)</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section section-alt" id="experience">
+    <div class="wrap section-inner">
+      <p class="eyebrow">experience.log</p>
+      <h2>Where I've built things</h2>
+
+      <article class="role">
+        <header class="role-head">
+          <div>
+            <h3>Mid-Level Embedded Software Engineer</h3>
+            <p class="role-org">Pylon</p>
+          </div>
+          <p class="role-date">Nov 2023 — Present</p>
+        </header>
+        <ul class="role-list">
+          <li>Developed and optimized communication stacks — PLC / Power Line Communication (PRIME 1.3.6), DLMS‑HDLC, and TCP/IP over fiber and copper — reaching 99% data transmission reliability across smart meter networks.</li>
+          <li>Designed low-level drivers for UART, SPI, and I2C peripherals, supporting rapid data transfer to EEPROM/Flash and comms modules (NFC, RS485).</li>
+          <li>Engineered system-level services for memory management, buffering, and storage integrity, preventing data corruption under heavy system loads.</li>
+          <li>Transitioned bare-metal super-loop systems to RTOS-based environments, improving modularity and CPU idle utilization by an estimated 95%.</li>
+          <li>Led hardware bring-up and debugging across 30+ custom PCB iterations, cutting development cycles by 60%.</li>
+          <li>Architected the application structure and custom build system for a residential Data Concentrator Unit, deploying full custom Embedded Linux images managing 120+ smart grid nodes.</li>
+          <li>Built system initialization and RTC sync services, reducing boot time from a 4-minute legacy vendor average to 45 seconds.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <header class="role-head">
+          <div>
+            <h3>Embedded Systems Part-time Instructor</h3>
+            <p class="role-org">Smart Technology</p>
+          </div>
+          <p class="role-date">Jun 2025 — Present</p>
+        </header>
+        <ul class="role-list">
+          <li>Authored 20+ practical challenges for the ATmega32 MCU, covering GPIO, Timers, PWM, and External Interrupts.</li>
+          <li>Delivered instruction and C/C++ code reviews to nearly 60 students, accelerating their bare-metal architecture understanding.</li>
+          <li>Designed lab projects including an Input Capture Unit task with the HC‑SR04 ultrasonic sensor and DC motor direction-control logic.</li>
+          <li>Built assessment frameworks to evaluate hardware-software integration projects.</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="wrap section-inner">
+      <p class="eyebrow">projects/ · sorted newest first</p>
+      <h2>Selected repositories</h2>
+      <div class="project-grid">
+
+        <a class="project-card" href="https://github.com/OmarAbdulQadir/Temperature-Monitoring-System" target="_blank" rel="noopener">
+          <span class="project-latest">Latest</span>
+          <p class="project-name">Temperature Monitoring System</p>
+          <p class="project-desc">FreeRTOS-based monitor with three explicit states — Idle, Alarm, and Config — that fires an alarm when a live sensor reading crosses a user-configurable threshold.</p>
+          <div class="project-tags"><span>FreeRTOS</span><span>C</span><span>State Machines</span></div>
+          <span class="project-link">github.com/OmarAbdulQadir/Temperature-Monitoring-System →</span>
+        </a>
+
+        <a class="project-card" href="https://github.com/OmarAbdulQadir/NTI_Grad_Project_ADAS" target="_blank" rel="noopener">
+          <p class="project-name">NTI ADAS Graduation Project</p>
+          <p class="project-desc">Graduation project for the NTI automotive embedded systems program — an Advanced Driver Assistance System built on embedded automotive fundamentals.</p>
+          <div class="project-tags"><span>Automotive</span><span>Embedded C</span><span>ADAS</span></div>
+          <span class="project-link">github.com/OmarAbdulQadir/NTI_Grad_Project_ADAS →</span>
+        </a>
+
+        <a class="project-card" href="https://github.com/OmarAbdulQadir/STM32F401RE" target="_blank" rel="noopener">
+          <p class="project-name">STM32F401RE</p>
+          <p class="project-desc">Layered driver stack for the STM32F401 — LIB / MCAL / HAL / APP structure, built and debugged directly on the CubeIDE toolchain, with Proteus simulation folders per app.</p>
+          <div class="project-tags"><span>C</span><span>Assembly</span><span>ARM Cortex‑M</span><span>Makefile</span></div>
+          <span class="project-link">github.com/OmarAbdulQadir/STM32F401RE →</span>
+        </a>
+
+      </div>
+      <a class="see-all" href="https://github.com/OmarAbdulQadir" target="_blank" rel="noopener">See all repositories on GitHub →</a>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section section-alt" id="skills">
+    <div class="wrap section-inner">
+      <p class="eyebrow">skills.h</p>
+      <h2>Toolbox</h2>
+
+      <div class="skills-grid">
+        <div class="skill-block">
+          <h4>Programming languages</h4>
+          <p>C · C++ · Python · Bash</p>
+        </div>
+        <div class="skill-block">
+          <h4>Communication protocols</h4>
+          <p>SPI · I2C · UART · CAN · LIN · PLC (Power Line Communication) · Ethernet · BLE · Wi‑Fi · Zigbee</p>
+        </div>
+        <div class="skill-block">
+          <h4>Bare Metal → Linux</h4>
+          <p>RTOS · Embedded Linux · Bare-metal · Device drivers · Bootloaders · ARM Cortex‑M · Memory management · Hardware bring‑up</p>
+        </div>
+        <div class="skill-block">
+          <h4>Tools</h4>
+          <p>Yocto · Buildroot · GDB · JTAG · SWD · Logic analyzer · Oscilloscope · Git · Makefile · CMake · CI/CD</p>
+        </div>
+      </div>
+
+      <div class="courses">
+        <h4>Recent coursework</h4>
+        <ul class="course-list">
+          <li><span class="course-name">Machine Learning for Embedded Systems</span><span class="course-meta">Udemy · Jun 2026</span></li>
+          <li><span class="course-name">The Complete Prompt Engineering for AI Bootcamp</span><span class="course-meta">Udemy · Apr 2026</span></li>
+          <li><span class="course-name">Embedded Linux</span><span class="course-meta">EDGES · Sep 2024</span></li>
+        </ul>
+      </div>
+
+      <div class="education">
+        <h4>Education</h4>
+        <p>B.Sc. in Systems and Biomedical Engineering — El Shorouk Academy, Cairo, Egypt (2015 – 2020)</p>
+
+        <div class="grad-project">
+          <span class="grad-project-label">Graduation project</span>
+          <p class="placeholder-text">[Placeholder — title and description to be added]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="wrap section-inner">
+      <p class="eyebrow">contact.init()</p>
+      <h2>Let's build something reliable</h2>
+      <p class="contact-lede">Open to embedded software roles — firmware, RTOS, Embedded Linux, or driver-level work.</p>
+      <div class="contact-grid">
+        <a class="contact-item" href="mailto:oabdulqadir2@gmail.com">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">oabdulqadir2@gmail.com</span>
+        </a>
+        <a class="contact-item" href="tel:+201096370075">
+          <span class="contact-label">Phone</span>
+          <span class="contact-value">+20 109 637 0075</span>
+        </a>
+        <a class="contact-item" href="https://www.linkedin.com/in/omar-abdul-qadir" target="_blank" rel="noopener">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">in/omar-abdul-qadir</span>
+        </a>
+        <a class="contact-item" href="https://github.com/OmarAbdulQadir" target="_blank" rel="noopener">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">OmarAbdulQadir</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>Omar Abdul Qadir — Embedded Software Engineer</span>
+    <span>Cairo, Egypt</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

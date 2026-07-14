@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omar Abdul Qadir — Embedded Software Engineer</title>
+<meta name="description" content="Omar Abdul Qadir, Embedded Software Engineer. RTOS, Embedded Linux, communication protocols, firmware and driver development.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F7F6;
+    --surface:#FFFFFF;
+    --ink:#12181A;
+    --muted:#57666B;
+    --line:#DCE3E1;
+    --accent:#1F6F54;
+    --accent-soft:#E4EFE9;
+    --copper:#B5652D;
+    --copper-soft:#F4E7DC;
+    --radius:2px;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px;}
+
+  .wrap{max-width:1040px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,247,246,0.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:16px 28px;}
+  .nav .mark{font-family:var(--mono); font-size:14px; letter-spacing:0.02em;}
+  .nav .mark b{font-weight:600;}
+  .nav .mark span{color:var(--accent);}
+  .nav ul{list-style:none; display:flex; gap:28px; margin:0; padding:0;}
+  .nav ul a{
+    font-family:var(--mono); font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em;
+    text-decoration:none; color:var(--muted); transition:color .15s ease;
+  }
+  .nav ul a:hover{color:var(--ink);}
+  .nav-toggle{display:none;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:88px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.15fr 1fr; gap:56px; align-items:center;
+  }
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent); margin:0 0 18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:8px; height:8px; background:var(--accent); display:inline-block; border-radius:1px;}
+  h1{
+    font-family:var(--display); font-weight:600; font-size:clamp(34px,5vw,52px);
+    line-height:1.06; margin:0 0 20px; letter-spacing:-0.01em;
+  }
+  h1 em{font-style:normal; color:var(--accent);}
+  .hero p.lead{
+    font-size:17px; color:var(--muted); max-width:46ch; margin:0 0 28px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13px; letter-spacing:0.03em;
+    padding:12px 20px; border-radius:var(--radius); text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px; transition:all .15s ease;
+    border:1px solid transparent;
+  }
+  .btn.primary{background:var(--ink); color:#fff;}
+  .btn.primary:hover{background:var(--accent);}
+  .btn.ghost{border-color:var(--line); color:var(--ink); background:transparent;}
+  .btn.ghost:hover{border-color:var(--ink);}
+
+  /* terminal signature element */
+  .terminal{
+    background:var(--ink); border-radius:6px; overflow:hidden;
+    box-shadow:0 24px 48px -20px rgba(18,24,26,0.35);
+  }
+  .terminal .bar{
+    display:flex; align-items:center; gap:7px; padding:11px 14px;
+    background:#1B2224; border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .terminal .dot{width:9px; height:9px; border-radius:50%; background:#3A4548;}
+  .terminal .bar span.label{
+    margin-left:8px; font-family:var(--mono); font-size:11px; color:#7D8B8E; letter-spacing:0.04em;
+  }
+  .terminal pre{
+    margin:0; padding:20px 18px 24px; font-family:var(--mono); font-size:12.5px;
+    color:#C9D6D2; line-height:1.85; min-height:220px; white-space:pre-wrap;
+  }
+  .terminal .ok{color:#5FD9A4;}
+  .terminal .num{color:#E3A96A;}
+  .terminal .cursor{display:inline-block; width:7px; height:14px; background:#5FD9A4; vertical-align:-2px; animation:blink 1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{padding:64px 0; border-bottom:1px solid var(--line);}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin-bottom:36px;}
+  .sec-num{font-family:var(--mono); font-size:13px; color:var(--accent);}
+  .sec-title{font-family:var(--display); font-size:26px; font-weight:600; margin:0;}
+  .sec-sub{font-family:var(--mono); font-size:12px; color:var(--muted); margin-left:auto; letter-spacing:0.03em;}
+
+  /* ---------- EXPERIENCE ---------- */
+  .role{
+    display:grid; grid-template-columns:220px 1fr; gap:32px;
+    padding:28px 0; border-top:1px solid var(--line);
+  }
+  .role:first-of-type{border-top:none;}
+  .role-meta .role-org{font-family:var(--display); font-weight:600; font-size:17px; margin:0 0 4px;}
+  .role-meta .role-title{font-size:14px; color:var(--muted); margin:0 0 8px;}
+  .role-meta .role-time{font-family:var(--mono); font-size:11.5px; color:var(--accent); text-transform:uppercase; letter-spacing:0.05em;}
+  .role ul{margin:0; padding-left:18px; color:var(--ink);}
+  .role li{margin-bottom:10px; font-size:14.5px;}
+  .role li:last-child{margin-bottom:0;}
+  .role li .stat{font-family:var(--mono); color:var(--accent); font-weight:500;}
+
+  /* ---------- METRICS STRIP ---------- */
+  .metrics{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); margin-top:40px;
+  }
+  .metric{background:var(--surface); padding:22px 18px;}
+  .metric .n{font-family:var(--mono); font-size:26px; font-weight:600; color:var(--accent);}
+  .metric .l{font-size:12px; color:var(--muted); margin-top:4px;}
+
+  /* ---------- PROJECTS ---------- */
+  .projects{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .card{
+    background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px; display:flex; flex-direction:column; gap:12px; transition:border-color .15s ease, transform .15s ease;
+    text-decoration:none; color:var(--ink);
+  }
+  .card:hover{border-color:var(--accent); transform:translateY(-2px);}
+  .card .card-top{display:flex; align-items:center; justify-content:space-between;}
+  .card .chip{
+    font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.05em;
+    background:var(--accent-soft); color:var(--accent); padding:4px 8px; border-radius:20px;
+  }
+  .card h3{font-family:var(--display); font-size:17px; margin:0; font-weight:600;}
+  .card p{font-size:13.5px; color:var(--muted); margin:0; flex-grow:1;}
+  .card .tags{display:flex; flex-wrap:wrap; gap:6px;}
+  .card .tags span{
+    font-family:var(--mono); font-size:10.5px; color:var(--muted);
+    border:1px solid var(--line); padding:3px 7px; border-radius:20px;
+  }
+  .card .arrow{font-family:var(--mono); font-size:12px; color:var(--accent);}
+
+  /* ---------- SKILLS (pinout style) ---------- */
+  .pinout{display:grid; grid-template-columns:repeat(2,1fr); gap:0 48px;}
+  .pin-group{padding:20px 0; border-top:1px solid var(--line);}
+  .pin-group:nth-child(-n+2){border-top:none;}
+  .pin-group h4{
+    font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--copper); margin:0 0 12px;
+  }
+  .pin-list{display:flex; flex-wrap:wrap; gap:8px;}
+  .pin-list span{
+    font-family:var(--mono); font-size:12.5px; background:var(--surface);
+    border:1px solid var(--line); padding:6px 10px; border-radius:20px;
+  }
+
+  /* ---------- TEACHING / COURSES ---------- */
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  .subhead{font-family:var(--display); font-weight:600; font-size:16px; margin:0 0 14px;}
+  .course{padding:14px 0; border-top:1px solid var(--line);}
+  .course:first-child{border-top:none;}
+  .course .c-name{font-size:14.5px; font-weight:600;}
+  .course .c-meta{font-family:var(--mono); font-size:11px; color:var(--muted); margin:2px 0 6px;}
+  .course .c-desc{font-size:13px; color:var(--muted); margin:0;}
+
+  /* ---------- FOOTER / CONTACT ---------- */
+  footer{padding:56px 0 40px;}
+  .contact-grid{display:flex; flex-wrap:wrap; justify-content:space-between; gap:28px; align-items:flex-end;}
+  footer h2{font-family:var(--display); font-size:30px; margin:0 0 8px; font-weight:600;}
+  footer p.sub{color:var(--muted); margin:0 0 22px; max-width:40ch;}
+  .contact-links{display:flex; flex-direction:column; gap:10px; font-family:var(--mono); font-size:13.5px;}
+  .contact-links a{text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:2px;}
+  .contact-links a:hover{border-color:var(--accent); color:var(--accent);}
+  .foot-note{margin-top:48px; font-family:var(--mono); font-size:11px; color:var(--muted); text-align:center;}
+
+  @media (max-width: 860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .nav ul{display:none;}
+    .role{grid-template-columns:1fr;}
+    .metrics{grid-template-columns:repeat(2,1fr);}
+    .projects{grid-template-columns:1fr;}
+    .pinout{grid-template-columns:1fr;}
+    .pin-group:nth-child(2){border-top:1px solid var(--line);}
+    .grid-2{grid-template-columns:1fr;}
+    .sec-sub{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <div class="mark"><b>OMAR</b> <span>/</span> ABDUL QADIR</div>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Cairo, Egypt · Available for roles</p>
+      <h1>Embedded software, built from the <em>register up</em>.</h1>
+      <p class="lead">I'm Omar Abdul Qadir, an embedded software engineer focused on communication stacks, RTOS migrations, and Linux bring-up for connected devices — currently shipping firmware for smart-grid hardware at Pylon.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="terminal" aria-hidden="true">
+      <div class="bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="label">dcu-boot.log</span>
+      </div>
+      <pre id="bootlog"></pre>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Experience</h2>
+      <span class="sec-sub">2023 — PRESENT</span>
+    </div>
+
+    <div class="role">
+      <div class="role-meta">
+        <p class="role-org">Pylon</p>
+        <p class="role-title">Mid-Level Embedded Software Engineer</p>
+        <p class="role-time">Nov 2023 — Present</p>
+      </div>
+      <ul>
+        <li>Developed and optimized communication stacks — PLC (PRIME 1.3.6), DLMS-HDLC, and TCP/IP over fiber and copper — reaching <span class="stat">99% data transmission reliability</span> across smart meter networks.</li>
+        <li>Designed low-level drivers for UART, SPI, and I2C peripherals, supporting rapid data transfer to EEPROM/Flash and communication modules (NFC, RS485).</li>
+        <li>Built system-level services for memory management, buffering, and storage integrity, preventing data corruption under heavy system loads.</li>
+        <li>Transitioned bare-metal super-loop systems to RTOS-based architectures, improving CPU resource utilization to an estimated <span class="stat">95% idle</span>.</li>
+        <li>Led hardware bring-up and debugging across <span class="stat">30+ custom PCB</span> iterations, cutting development cycles by <span class="stat">60%</span>.</li>
+        <li>Architected the application structure and custom build system for a residential Data Concentrator Unit (DCU), deploying full custom Embedded Linux images to manage edge data collection for <span class="stat">120+ smart grid nodes</span>.</li>
+        <li>Engineered environment-control and RTC sync services during system bring-up, cutting boot time from a 4-minute vendor baseline to <span class="stat">45 seconds</span>.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-meta">
+        <p class="role-org">Smart Technology</p>
+        <p class="role-title">Embedded Systems Instructor (Part-time)</p>
+        <p class="role-time">Jun 2025 — Present</p>
+      </div>
+      <ul>
+        <li>Authored technical curricula and <span class="stat">20+</span> practical Mega-Assignments for the ATmega32 MCU, covering GPIO, timers, PWM, and external interrupts.</li>
+        <li>Delivered instruction and C/C++ code reviews to nearly <span class="stat">60 students</span>, accelerating their bare-metal architecture understanding.</li>
+        <li>Designed lab projects including an Input Capture Unit task with the HC-SR04 ultrasonic sensor, and DC motor direction-control systems.</li>
+        <li>Formulated assessment frameworks to evaluate hardware-software integration projects.</li>
+      </ul>
+    </div>
+
+    <div class="metrics">
+      <div class="metric"><div class="n">99%</div><div class="l">Data transmission reliability</div></div>
+      <div class="metric"><div class="n">120+</div><div class="l">Smart grid nodes managed</div></div>
+      <div class="metric"><div class="n">45s</div><div class="l">Boot time, down from 4 min</div></div>
+      <div class="metric"><div class="n">30+</div><div class="l">Custom PCB bring-ups</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Projects</h2>
+      <span class="sec-sub">GITHUB.COM/OMARABDULQADIR</span>
+    </div>
+    <div class="projects">
+
+      <a class="card" href="https://github.com/OmarAbdulQadir/STM32F401RE" target="_blank" rel="noopener">
+        <div class="card-top"><span class="chip">C · Assembly</span></div>
+        <h3>STM32F401RE</h3>
+        <p>Layered driver stack for the STM32F401 — LIB, MCAL, HAL, and application layers, built and tested in STM32CubeIDE with Proteus simulation.</p>
+        <div class="tags"><span>arm</span><span>stm32</span><span>embedded-c</span><span>blackpill</span></div>
+        <span class="arrow">View repository →</span>
+      </a>
+
+      <a class="card" href="https://github.com/OmarAbdulQadir/Temperature-Monitoring-System" target="_blank" rel="noopener">
+        <div class="card-top"><span class="chip">FreeRTOS</span></div>
+        <h3>Temperature Monitoring System</h3>
+        <p>FreeRTOS-based monitor with Idle, Alarm, and Config states — fires an alarm task when readings exceed a configurable threshold.</p>
+        <div class="tags"><span>rtos</span><span>state-machine</span><span>c</span></div>
+        <span class="arrow">View repository →</span>
+      </a>
+
+      <a class="card" href="https://github.com/OmarAbdulQadir/NTI_Grad_Project_ADAS" target="_blank" rel="noopener">
+        <div class="card-top"><span class="chip">ADAS</span></div>
+        <h3>NTI ADAS Graduation Project</h3>
+        <p>Graduation project for the NTI Automotive Embedded Systems program, built around advanced driver-assistance concepts.</p>
+        <div class="tags"><span>automotive</span><span>embedded-systems</span></div>
+        <span class="arrow">View repository →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Skills</h2>
+      <span class="sec-sub">TOOLCHAIN &amp; PROTOCOLS</span>
+    </div>
+    <div class="pinout">
+      <div class="pin-group">
+        <h4>Languages</h4>
+        <div class="pin-list"><span>C</span><span>C++</span><span>Python</span><span>Bash</span></div>
+      </div>
+      <div class="pin-group">
+        <h4>Protocols</h4>
+        <div class="pin-list"><span>SPI</span><span>I2C</span><span>UART</span><span>CAN</span><span>LIN</span><span>PLC</span><span>Ethernet</span><span>BLE</span><span>Wi-Fi</span><span>Zigbee</span></div>
+      </div>
+      <div class="pin-group">
+        <h4>Systems</h4>
+        <div class="pin-list"><span>RTOS</span><span>Embedded Linux</span><span>Bare-metal</span><span>Device Drivers</span><span>Bootloaders</span><span>ARM Cortex-M</span></div>
+      </div>
+      <div class="pin-group">
+        <h4>Tools</h4>
+        <div class="pin-list"><span>Yocto</span><span>Buildroot</span><span>GDB</span><span>JTAG</span><span>SWD</span><span>Logic Analyzer</span><span>Oscilloscope</span><span>Git</span><span>CMake</span><span>CI/CD</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="wrap grid-2">
+    <div>
+      <p class="subhead">Continued learning</p>
+      <div class="course">
+        <p class="c-name">Machine Learning for Embedded Systems</p>
+        <p class="c-meta">Udemy · June 2026</p>
+        <p class="c-desc">End-to-end TinyML deployment on ARM Ethos-U and Cortex-M, with weight pruning and clustering for memory-bound inference.</p>
+      </div>
+      <div class="course">
+        <p class="c-name">The Complete Prompt Engineering for AI Bootcamp</p>
+        <p class="c-meta">Udemy · April 2026</p>
+        <p class="c-desc">Zero-shot, few-shot, and chain-of-thought prompting for applied LLM workflows.</p>
+      </div>
+      <div class="course">
+        <p class="c-name">Embedded Linux</p>
+        <p class="c-meta">EDGES · September 2024</p>
+        <p class="c-desc">Yocto, Buildroot, and manual build systems; C++ applications with custom Makefiles and CMake.</p>
+      </div>
+    </div>
+    <div>
+      <p class="subhead">Education</p>
+      <div class="course">
+        <p class="c-name">B.Sc. Systems and Biomedical Engineering</p>
+        <p class="c-meta">El Shorouk Academy, Cairo, Egypt · 2015 — 2020</p>
+      </div>
+      <p class="subhead" style="margin-top:32px;">Languages</p>
+      <div class="pin-list">
+        <span>Arabic — Native</span><span>English — Advanced</span><span>Spanish — Beginner</span><span>German — Beginner</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <h2>Let's build something reliable.</h2>
+        <p class="sub">Open to embedded software roles — firmware, drivers, RTOS, and Linux bring-up.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:oabdulqadir2@gmail.com">oabdulqadir2@gmail.com</a>
+        <a href="tel:+201096370075">+20 109 637 0075</a>
+        <a href="https://www.linkedin.com/in/omar-abdul-qadir" target="_blank" rel="noopener">linkedin.com/in/omar-abdul-qadir</a>
+        <a href="https://github.com/OmarAbdulQadir" target="_blank" rel="noopener">github.com/OmarAbdulQadir</a>
+      </div>
+    </div>
+    <p class="foot-note">© 2026 Omar Abdul Qadir · Cairo, Egypt</p>
+  </div>
+</footer>
+
+<script>
+  // Boot-log signature animation in the hero terminal
+  const lines = [
+    "[ 0.041] init: mounting rootfs ...",
+    "[ 0.318] drv: uart0 spi0 i2c1 <span class=\"ok\">up</span>",
+    "[ 1.204] net: prime-plc link <span class=\"ok\">negotiated</span>",
+    "[ 2.870] net: dlms-hdlc handshake <span class=\"ok\">ok</span>",
+    "[ 6.552] rtos: super-loop -> tasks <span class=\"ok\">migrated</span>",
+    "[18.113] grid: <span class=\"num\">120</span> nodes discovered",
+    "[41.906] rtc: sync <span class=\"ok\">complete</span>",
+    "[<span class=\"num\">45.021</span>] boot <span class=\"ok\">complete</span> — reliability <span class=\"num\">99%</span>"
+  ];
+  const el = document.getElementById('bootlog');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion) {
+    el.innerHTML = lines.join('\n');
+  } else {
+    let li = 0;
+    function typeLine() {
+      if (li >= lines.length) {
+        el.innerHTML += '\n<span class="cursor"></span>';
+        return;
+      }
+      const full = lines[li];
+      const plain = full.replace(/<[^>]+>/g, '');
+      let ci = 0;
+      const speed = 14;
+      function typeChar() {
+        ci++;
+        // reveal proportionally through the plain text, then swap to full markup at line end
+        if (ci >= plain.length) {
+          const rendered = el.innerHTML.split('\n');
+          rendered[li] = full;
+          el.innerHTML = rendered.join('\n');
+          li++;
+          setTimeout(typeLine, 90);
+          return;
+        }
+        const rendered = el.innerHTML.split('\n');
+        rendered[li] = plain.slice(0, ci);
+        el.innerHTML = rendered.join('\n');
+        setTimeout(typeChar, speed);
+      }
+      el.innerHTML += (li === 0 ? '' : '\n');
+      typeChar();
+    }
+    typeLine();
+  }
+</script>
+
+</body>
+</html>
