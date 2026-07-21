@@ -132,13 +132,53 @@ h1, h2, h3, h4 {
    ============================================================ */
 .hero {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 40px;
-  align-items: center;
+  grid-template-columns: 200px 1fr 380px;
+  grid-template-areas:
+    "heading heading heading"
+    "photo   text    chip";
+  row-gap: 28px;
+  column-gap: 40px;
+  align-items: start;
   padding: 88px 28px 72px;
 }
 
+.hero-heading { grid-area: heading; }
+.hero-heading h1 { margin: 6px 0 0; }
+.hero-photo { grid-area: photo; display: flex; flex-direction: column; align-items: center; }
+.hero-text { grid-area: text; }
+.hero-chip { grid-area: chip; }
+
 .eyebrow { }
+
+.avatar-frame {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  border: 2px dashed var(--line-strong);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.avatar-frame.avatar-empty { border-color: var(--accent); }
+.avatar-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.avatar-placeholder-text {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
 
 .hero h1 {
   font-size: clamp(38px, 5vw, 56px);
@@ -155,6 +195,7 @@ h1, h2, h3, h4 {
 
 .hero-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 14px;
   margin-bottom: 26px;
 }
@@ -183,6 +224,7 @@ h1, h2, h3, h4 {
   font-size: 12.5px;
   color: var(--ink-faint);
   border-top: 1px dashed var(--line-strong);
+  margin-top: 20px;
   padding-top: 14px;
 }
 
@@ -266,9 +308,21 @@ h1, h2, h3, h4 {
   margin-top: 10px;
 }
 
+@media (max-width: 1180px) {
+  .hero { grid-template-columns: 160px 1fr 340px; gap: 30px; }
+}
+
 @media (max-width: 860px) {
-  .hero { grid-template-columns: 1fr; padding-top: 56px; }
-  .hero-chip { order: -1; }
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "heading"
+      "photo"
+      "text"
+      "chip";
+    padding-top: 56px;
+  }
+  .hero-photo { align-items: flex-start; }
   .chip-svg { max-width: 320px; }
 }
 
@@ -518,7 +572,7 @@ h1, h2, h3, h4 {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 14px;
 }
 .contact-item {
@@ -541,10 +595,13 @@ h1, h2, h3, h4 {
 }
 .contact-value { font-size: 14.5px; word-break: break-word; }
 
-@media (max-width: 860px) {
+@media (max-width: 980px) {
+  .contact-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
   .contact-grid { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 480px) {
+@media (max-width: 420px) {
   .contact-grid { grid-template-columns: 1fr; }
 }
 
