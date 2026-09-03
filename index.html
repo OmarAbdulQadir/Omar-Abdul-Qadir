@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Omar Abdul Qadir, Embedded Software Engineer</title>
+<title>Omar Abdul Qadir — Embedded Software Engineer</title>
 <meta name="description" content="Portfolio of Omar Abdul Qadir, Embedded Software Engineer specializing in RTOS, Embedded Linux, and low-level driver development.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,25 +31,17 @@
 
   <!-- HERO / SIGNATURE ELEMENT -->
   <section class="hero wrap" id="top">
-    <div class="hero-heading">
-      <p class="eyebrow">// embedded software engineer · cairo, egypt</p>
-      <h1>Omar Abdul Qadir</h1>
-      <p class="hero-meta">Currently: Mid-Level Embedded Software Engineer @ Pylon · Smart-grid comms, RTOS, Embedded Linux</p>
-    </div>
-
-    <div class="hero-photo">
-      <div class="avatar-frame">
-        <img src="resources/profile-photo.jpg" alt="Omar Abdul Qadir" class="avatar-img" onerror="this.remove(); this.parentElement.classList.add('avatar-empty');">
-        <span class="avatar-placeholder-text">photo</span>
-      </div>
-    </div>
-
     <div class="hero-text">
-      <p class="hero-lede">I build the firmware layer between silicon and the systems that depend on it, from smart-grid communication stacks to RTOS ports to full Embedded Linux images. It's been my passion since college, where I went from studying it to teaching it, and in my final two years I led the teams who taught it. I believe work is at its best when we do what we love, teach what we know, learn from each other, and help one another thrive.</p>
+      <p class="eyebrow">// senior embedded software engineer — cairo, egypt</p>
+      <h1>Omar Abdul Qadir</h1>
+      <p class="hero-lede">Senior Embedded Software Engineer at Pylon, leading the architecture and development of LTE-enabled smart utility gateways and Linux-based industrial IoT devices for smart grid infrastructure. Experienced across the full stack; from low-level driver and bootloader development to Embedded Linux system builds (U-Boot, kernel, RootFS) and communication protocols including DLMS/COSEM and PRIME/G3 PLC.<br><br>
+	  Also serves as an Embedded Systems Instructor at Smart Technology, training students in Embedded C, Arduino, STM32, and IoT applications. Holds a Bachelor of Engineering in Biomedical/Medical Engineering from El Shorouk Academy. Passionate about hands-on learning, mentoring, and pushing the boundaries of embedded systems, currently exploring TinyML and Edge AI for resource-constrained devices.</p>
       <div class="hero-actions">
+        <a class="btn btn-primary" href="#projects">View projects</a>
         <a class="btn btn-ghost" href="resources/Omar_Abdul_Qadir_CV.pdf" download>Download résumé</a>
         <a class="btn btn-ghost" href="#contact">Get in touch</a>
       </div>
+      <p class="hero-meta">Currently: Senior Embedded Software Engineer @ Pylon · Smart-grid comms, RTOS, Embedded Linux</p>
     </div>
 
     <div class="hero-chip" aria-hidden="false">
@@ -122,7 +114,7 @@
           <rect x="262" y="360" width="16" height="40" class="pad"/>
         </g>
       </svg>
-      <p class="chip-caption">click a pin to jump to a section</p>
+      <p class="chip-caption">click a pin — it routes to a section</p>
     </div>
   </section>
 
@@ -130,7 +122,7 @@
   <section class="section" id="summary">
     <div class="wrap section-inner">
       <p class="eyebrow">summary.txt</p>
-      <p class="summary-text">Embedded Software Engineer with 3+ years of experience building firmware, RTOS-based systems, and Embedded Linux platforms for smart-grid and communication applications. Focused on low-level driver development, system optimization, and hardware bring-up, with a track record of improving reliability and performance under real-world constraints. Looking to bring that depth to embedded software and firmware roles, while continuing to learn and build reliable, high-quality systems.</p>
+      <p class="summary-text">Determined embedded software engineer with a strong focus on research, problem-solving, and system optimization. I care about the parts of firmware that don't show up in a demo: boot time, memory integrity under load, and driver behavior at the edges of the datasheet. Currently seeking to keep applying that toward reliable, high-quality embedded and Linux systems.</p>
       <dl class="fact-row">
         <div><dt>Location</dt><dd>Cairo, Egypt</dd></div>
         <div><dt>Focus</dt><dd>RTOS · Embedded Linux · Comms stacks</dd></div>
@@ -148,19 +140,44 @@
       <article class="role">
         <header class="role-head">
           <div>
+            <h3>Senior Embedded Software Engineer</h3>
+            <p class="role-org">Pylon</p>
+          </div>
+          <p class="role-date">Sept 2026 — Present</p>
+        </header>
+        <ul class="role-list">
+          <li>Stepped into the Senior role supporting device manufacturing and leading development of board test jigs on the factory floor.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <header class="role-head">
+          <div>
             <h3>Mid-Level Embedded Software Engineer</h3>
             <p class="role-org">Pylon</p>
           </div>
-          <p class="role-date">Nov 2023 – Present</p>
+          <p class="role-date">Sept 2025 — Sept 2026</p>
         </header>
         <ul class="role-list">
-          <li>Developed and optimized communication stacks, including PLC / Power Line Communication (PRIME 1.3.6), DLMS‑HDLC, and TCP/IP over fiber and copper, reaching 99% data transmission reliability across smart meter networks.</li>
-          <li>Designed low-level drivers for UART, SPI, and I2C peripherals, supporting rapid data transfer to EEPROM/Flash and comms modules (NFC, RS485).</li>
-          <li>Engineered system-level services for memory management, buffering, and storage integrity, preventing data corruption under heavy system loads.</li>
-          <li>Transitioned bare-metal super-loop systems to RTOS-based environments, improving modularity and CPU idle utilization by an estimated 95%.</li>
-          <li>Led hardware bring-up and debugging across 30+ custom PCB iterations, cutting development cycles by 60%.</li>
-          <li>Architected the application structure and custom build system for a residential Data Concentrator Unit, deploying full custom Embedded Linux images managing 120+ smart grid nodes.</li>
-          <li>Built system initialization and RTC sync services, reducing boot time from a 4-minute legacy vendor average to 45 seconds.</li>
+          <li>Architected a new Linux-based DCU (PLC base-node) from the ground up: application structure, build system, web/PLC network manager, and device database, managing edge data for 1000+ smart grid nodes.</li>
+          <li>Built the Linux system from the ground up: U-Boot bootloader, kernel configuration, and root filesystem, cutting boot time from a 4-minute vendor average to 45 seconds and lowering the system's memory footprint to 3GB.</li>
+          <li>Led bring-up of a new advanced Gateway device (Ethernet copper and fiber) across multiple custom PCB iterations, cutting development cycles by 60% through close hardware-software coordination.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <header class="role-head">
+          <div>
+            <h3>Embedded Software Engineer</h3>
+            <p class="role-org">Pylon</p>
+          </div>
+          <p class="role-date">Nov 2023 — Sept 2025</p>
+        </header>
+        <ul class="role-list">
+          <li>Transitioned Gateways from bare-metal to RTOS (FreeRTOS), boosting CPU idle time by roughly 90%.</li>
+          <li>Built a secure bootloader to protect devices against corrupted or unauthorized updates.</li>
+          <li>Designed low-level EEPROM/Flash memory management, preventing data corruption under heavy load.</li>
+          <li>Brought up the PLC (PRIME 1.3.6) and DLMS-HDLC stacks, reaching 99% data transmission reliability across smart meter networks.</li>
         </ul>
       </article>
 
@@ -170,7 +187,7 @@
             <h3>Embedded Systems Part-time Instructor</h3>
             <p class="role-org">Smart Technology</p>
           </div>
-          <p class="role-date">Jun 2025 – Present</p>
+          <p class="role-date">Jun 2025 — Present</p>
         </header>
         <ul class="role-list">
           <li>Authored 20+ practical challenges for the ATmega32 MCU, covering GPIO, Timers, PWM, and External Interrupts.</li>
@@ -199,7 +216,7 @@
 
         <a class="project-card" href="https://github.com/OmarAbdulQadir/Mores-Code-Detector_Neural-Network" target="_blank" rel="noopener">
           <span class="project-latest">Latest</span>
-          <p class="project-name">Morse Code Detector: Neural Network</p>
+          <p class="project-name">Morse Code Detector — Neural Network</p>
           <p class="project-desc">End-to-end TinyML / Edge AI project: a real-time Morse code decoder running an INT8 1D-CNN entirely on an STM32F401 (Cortex‑M4). Trained in Colab, deployed with X‑CUBE‑AI at ~4.9KB weights and ~8.2KB RAM.</p>
           <div class="project-tags"><span>TinyML</span><span>Edge AI</span><span>C</span><span>STM32F401</span></div>
           <span class="project-link">github.com/OmarAbdulQadir/Mores-Code-Detector_Neural-Network →</span>
@@ -207,14 +224,14 @@
 
         <a class="project-card" href="https://github.com/OmarAbdulQadir/Temperature-Monitoring-System" target="_blank" rel="noopener">
           <p class="project-name">Temperature Monitoring System</p>
-          <p class="project-desc">FreeRTOS-based monitor with three explicit states (Idle, Alarm, and Config) that fires an alarm when a live sensor reading crosses a user-configurable threshold.</p>
+          <p class="project-desc">FreeRTOS-based monitor with three explicit states — Idle, Alarm, and Config — that fires an alarm when a live sensor reading crosses a user-configurable threshold.</p>
           <div class="project-tags"><span>FreeRTOS</span><span>C</span><span>State Machines</span></div>
           <span class="project-link">github.com/OmarAbdulQadir/Temperature-Monitoring-System →</span>
         </a>
 
         <a class="project-card" href="https://github.com/OmarAbdulQadir/NTI_Grad_Project_ADAS" target="_blank" rel="noopener">
           <p class="project-name">NTI ADAS Graduation Project</p>
-          <p class="project-desc">Graduation project for the NTI automotive embedded systems program: an Advanced Driver Assistance System built on embedded automotive fundamentals.</p>
+          <p class="project-desc">Graduation project for the NTI automotive embedded systems program — an Advanced Driver Assistance System built on embedded automotive fundamentals.</p>
           <div class="project-tags"><span>Automotive</span><span>Embedded C</span><span>ADAS</span></div>
           <span class="project-link">github.com/OmarAbdulQadir/NTI_Grad_Project_ADAS →</span>
         </a>
@@ -261,8 +278,8 @@
       <div class="education">
         <h4>Education</h4>
         <p class="degree-line">Bachelor's Degree in Systems and Biomedical Engineering</p>
-        <p class="degree-school">The Higher Institute of Engineering, El Shorouk Academy, Cairo, Egypt (2015 – 2020)</p>
-        <p class="degree-grade">Graduated with a "Very Good" cumulative grade, equivalent to 3.14 / 4.0 GPA</p>
+        <p class="degree-school">The Higher Institute of Engineering — El Shorouk Academy, Cairo, Egypt (2015 – 2020)</p>
+        <p class="degree-grade">Graduated with a "Very Good" cumulative grade — equivalent to 3.14 / 4.0 GPA</p>
 
         <div class="grad-project">
           <span class="grad-project-label">Graduation project · Team Leader</span>
@@ -283,12 +300,8 @@
     <div class="wrap section-inner">
       <p class="eyebrow">contact.init()</p>
       <h2>Let's build something reliable</h2>
-      <p class="contact-lede">Open to embedded software roles: firmware, RTOS, Embedded Linux, or driver-level work.</p>
+      <p class="contact-lede">Open to embedded software roles — firmware, RTOS, Embedded Linux, or driver-level work.</p>
       <div class="contact-grid">
-        <a class="contact-item" href="resources/Omar_Abdul_Qadir_CV.pdf" download>
-          <span class="contact-label">Résumé</span>
-          <span class="contact-value">Download PDF</span>
-        </a>
         <a class="contact-item" href="mailto:oabdulqadir2@gmail.com">
           <span class="contact-label">Email</span>
           <span class="contact-value">oabdulqadir2@gmail.com</span>
@@ -313,7 +326,7 @@
 
 <footer class="footer">
   <div class="wrap footer-inner">
-    <span>Omar Abdul Qadir, Embedded Software Engineer</span>
+    <span>Omar Abdul Qadir — Embedded Software Engineer</span>
     <span>Cairo, Egypt</span>
   </div>
 </footer>
